@@ -1,0 +1,50 @@
+const numbers = [
+    "+94774609569", "+94774609569", "+94774609569", "+94774609569", // Add more numbers here
+    "+94774609569", "+94774609569", "+94774609569", "+94774609569",
+    "+94774609569", "+94774609569", "+94774609569", "+94774609569",
+    "+94774609569", "+94774609569", "+94774609569", "+94700012233",
+    "+94700012334", "+94774609569", "+94774609569", "+94774609569"
+];
+
+const numberContainer = document.getElementById("number-container");
+const sendButtonsContainer = document.querySelector(".send-buttons");
+
+let selectedNumbers = [];
+
+numbers.forEach(number => {
+    const btn = document.createElement("button");
+    btn.innerText = number;
+    btn.classList.add("number-btn");
+    btn.onclick = () => toggleSelection(btn, number);
+    numberContainer.appendChild(btn);
+});
+
+function toggleSelection(btn, number) {
+    if (selectedNumbers.includes(number)) {
+        selectedNumbers = selectedNumbers.filter(num => num !== number);
+        btn.style.backgroundColor = "#ff5e57"; // reset color
+    } else {
+        selectedNumbers.push(number);
+        btn.style.backgroundColor = "#56ab2f"; // change to selected color
+    }
+    updateSendButtons();
+}
+
+function updateSendButtons() {
+    sendButtonsContainer.innerHTML = ''; // Clear existing send buttons
+    selectedNumbers.forEach(number => {
+        const sendBtn = document.createElement("button");
+        sendBtn.innerText = `Send to ${number}`;
+        sendBtn.onclick = () => sendMessageToNumber(number);
+        sendButtonsContainer.appendChild(sendBtn);
+    });
+}
+
+function sendMessageToNumber(number) {
+    const message = document.getElementById("message").value;
+    if (message.trim() === "") {
+        alert("කරුණාකර පණිවිඩය ඇතුළත් කරන්න!");
+        return;
+    }
+    window.open(`https://wa.me/${number.replace("+", "")}?text=${encodeURIComponent(message)}`);
+}

@@ -1,0 +1,80 @@
+/* General styles */
+body {
+    background-color: #000;
+    font-family: Arial, sans-serif;
+    color: #fff;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    background-color: #333;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    color: #ff5e57;
+    font-size: 36px;
+    margin: 0;
+}
+
+/* Container for the phone number buttons */
+#number-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.number-btn {
+    background-color: #ff5e57;
+    border: none;
+    color: #fff;
+    padding: 15px 30px;
+    margin: 10px;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.number-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(255, 94, 87, 0.8);
+}
+
+/* Textarea for message */
+textarea {
+    width: 80%;
+    height: 100px;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Send buttons container */
+.send-buttons {
+    margin-top: 20px;
+}
+
+button {
+    padding: 15px 30px;
+    margin-top: 20px;
+    background-color: #56ab2f;
+    color: #fff;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #a8e063;
+}
